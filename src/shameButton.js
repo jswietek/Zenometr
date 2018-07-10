@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './shameButton.css';
 
+
 class ShameButton extends Component {
 	constructor(props){
 		super(props);
@@ -15,9 +16,9 @@ class ShameButton extends Component {
 	
 	render() {
 		return (
-			<div className="shame-button" onClick={this.props.raiseShame} ref={this.shameButtonRef}>
-				<div className="shame-button-text">
-					SHAME!
+			<div className={'shame-button' + (this.props.isReset ? ' reset' : '')} onClick={this.props.raiseShame} ref={this.shameButtonRef}>
+				<div className='shame-button-content'>
+					{this.props.isReset ? (<i class="fas fa-redo"></i>) : 'SHAME!' }
 				</div>
 			</div>
 		);

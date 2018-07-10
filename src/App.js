@@ -41,6 +41,8 @@ class App extends Component {
 
 	increaseShameLevel = function () {
 		if (this.state.shameLevel < 100) {
+			var audio = document.getElementById("audio");
+       		audio.play();
 			return this.state.shameLevel + 10;
 		}
 		else {
@@ -59,6 +61,7 @@ class App extends Component {
 	render() {
 		return (
 			<div className="App" id="shame-app">
+				<audio id="audio" src={require('./sound/sound1.mp3')} ></audio>
 				<ShameLevel shameLevel={this.state.shameLevel} />
 				<img ref={this.imgFace} src={require('./facepalm.gif')} className="facepalm" />
 				<ShameButton isShaking={this.state.isShaking} raiseShame={() => this.raiseShame()} buttonTop={this.state.buttonTop} isReset={this.state.isReset}/>

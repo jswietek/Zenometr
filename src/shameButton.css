@@ -1,0 +1,80 @@
+.shame-button-text {
+		position:absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		
+		font-family: 'VT323', Courier, monospace;
+		font-size: 10vw;
+
+		-webkit-user-select: none; /* Safari */        
+		-moz-user-select: none; /* Firefox */
+		-ms-user-select: none; /* IE10+/Edge */
+		user-select: none; /* Standard */
+}
+	
+.shame-button {
+		background: #f7d51d;
+  
+		position:absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		
+		width: 30vw;
+		height: 15vw;
+		min-width: 100px;
+		min-height: 100px;
+		
+		box-shadow: inset -0.66vw -0.66vw 0px 0px #e59400;
+
+		-moz-transition: top .5s ease;
+		-webkit-transition: top .5s ease;
+		-o-transition: top .5s ease;
+		transition: top .5s ease;
+}
+	
+.shame-button:hover, .shame-button:focus {
+		background: #f2c409;
+		box-shadow: inset -1vw -1vw 0px 0px #e59400;
+}
+	
+.shame-button:active {
+		box-shadow: inset 0.66vw 0.66vw 0px 0px #e59400;
+}
+	
+.shame-button:before, .shame-button:after {
+		content: '';
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		box-sizing: content-box;
+}
+	
+.shame-button:before {
+		top: -1vw;
+		left: 0;
+		border-top: 1vw black solid;
+		border-bottom: 1vw black solid;
+}
+
+.shame-button:after {
+		left: -1vw;
+		top: 0;
+		border-left: 1vw black solid;
+		border-right: 1vw black solid;
+}
+	
+.shame-button--proceed {
+		background: #f7d51d;
+		box-shadow: inset -0.33vw -0.33vw 0px 0px #e59400;
+}
+	
+.shame-button--proceed:hover, .shame-button--proceed:focus {
+		background: #f2c409;
+		box-shadow: inset -0.5vw -0.5vw 0px 0px #e59400;
+}
+	
+.shame-button--proceed:active {
+		box-shadow: inset 0.33vw 0.33vw 0px 0px #e59400;
+}

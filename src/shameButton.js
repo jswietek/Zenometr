@@ -16,7 +16,7 @@ class ShameButton extends Component {
 	
 	render() {
 		return (
-			<div className={'shame-button' + (this.props.isReset ? ' reset' : '')} onClick={this.props.raiseShame} ref={this.shameButtonRef}>
+			<div className={'shame-button' + (this.props.isReset ? ' reset' : '') + (this.props.isShaking ? ' shake' : '')} onClick={this.props.raiseShame} ref={this.shameButtonRef}>
 				<div className='shame-button-content'>
 					{this.props.isReset ? (<i class="fas fa-redo"></i>) : 'SHAME!' }
 				</div>

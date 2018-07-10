@@ -12,7 +12,7 @@ class App extends Component {
 			isReset: false
 		}
 		this.imgFace = React.createRef();
-
+		this.button = React.createRef();
 		
 	}
 
@@ -22,7 +22,8 @@ class App extends Component {
 		this.setState({
 			shameLevel: incShameLevel,
 			buttonTop: incShameLevel < 100 ? '50%' : '80%',
-			isReset: incShameLevel == 100
+			isReset: incShameLevel == 100,
+			isShaking: true
 		})
 		if (incShameLevel === 100) {
 			setTimeout(() => this.showGif(), 200);
@@ -30,6 +31,12 @@ class App extends Component {
 		else if (incShameLevel === 0) {
 			setTimeout(() => this.hideGif(), 100);
 		}
+		setTimeout(()=>{
+			this.setState(prevState => ({
+				...prevState,
+				isShaking: false
+			}))
+		}, 500)
 	}
 
 	increaseShameLevel = function () {
@@ -54,7 +61,7 @@ class App extends Component {
 			<div className="App" id="shame-app">
 				<ShameLevel shameLevel={this.state.shameLevel} />
 				<img ref={this.imgFace} src={require('./facepalm.gif')} className="facepalm" />
-				<ShameButton raiseShame={() => this.raiseShame()} buttonTop={this.state.buttonTop} isReset={this.state.isReset} />
+				<ShameButton isShaking={this.state.isShaking} raiseShame={() => this.raiseShame()} buttonTop={this.state.buttonTop} isReset={this.state.isReset}/>
 			</div>
 		);
 	}

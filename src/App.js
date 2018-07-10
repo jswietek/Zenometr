@@ -12,7 +12,10 @@ class App extends Component {
 			isReset: false
 		}
 		this.imgFace = React.createRef();
+
+		
 	}
+
 
 	raiseShame = function () {
 		var incShameLevel = this.increaseShameLevel();
@@ -48,7 +51,7 @@ class App extends Component {
 
 	render() {
 		return (
-			<div className="App">
+			<div className="App" id="shame-app">
 				<ShameLevel shameLevel={this.state.shameLevel} />
 				<img ref={this.imgFace} src={require('./facepalm.gif')} className="facepalm" />
 				<ShameButton raiseShame={() => this.raiseShame()} buttonTop={this.state.buttonTop} isReset={this.state.isReset} />

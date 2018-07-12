@@ -10,7 +10,6 @@ class Scale extends Component {
 	}
 
 	componentWillReceiveProps(nextProps) {
-		console.log('next props');
 		var height = (20 + (nextProps.shameLevel * 0.8)) + '%';
 		this.setState({
 			mercuryHeight: height

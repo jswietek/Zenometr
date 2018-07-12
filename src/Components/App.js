@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import ShameButton from './shameButton'
+import WatTextOverlay from './watTextOverlay'
 
 class App extends Component {
 	constructor(props) {
@@ -11,6 +12,7 @@ class App extends Component {
 		}
 		this.imgFace = React.createRef();
 		this.button = React.createRef();
+		this.wat = React.createRef();
 	}
 
 
@@ -39,6 +41,7 @@ class App extends Component {
 		if (this.state.shameLevel < 100) {
 			var audio = document.getElementById("audio");
 			audio.play();
+			this.wat.current.showText();
 			return this.state.shameLevel + 10;
 		}
 		else {
@@ -57,6 +60,7 @@ class App extends Component {
 	render() {
 		return (
 			<div className="App" id="shame-app">
+				<WatTextOverlay ref={this.wat}/>
 				<audio id="audio" src="http://ankaikuba.nazwa.pl/sounds/sound1.mp3" ></audio>
 				<ShameButton isShaking={this.state.isShaking} raiseShame={() => this.raiseShame()} buttonTop={this.state.buttonTop} 
 					isReset={this.state.isReset} shameLevel={this.state.shameLevel}/>

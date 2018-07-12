@@ -1,19 +1,16 @@
 import React, { Component } from 'react';
 import './App.css';
 import ShameButton from './shameButton'
-import ShameLevel from './shameLevel'
 
 class App extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
 			shameLevel: 0,
-			buttonTop: '50%',
 			isReset: false
 		}
 		this.imgFace = React.createRef();
 		this.button = React.createRef();
-		
 	}
 
 
@@ -21,8 +18,7 @@ class App extends Component {
 		var incShameLevel = this.increaseShameLevel();
 		this.setState({
 			shameLevel: incShameLevel,
-			buttonTop: incShameLevel < 100 ? '50%' : '80%',
-			isReset: incShameLevel == 100,
+			isReset: incShameLevel === 100,
 			isShaking: true
 		})
 		if (incShameLevel === 100) {
@@ -62,9 +58,9 @@ class App extends Component {
 		return (
 			<div className="App" id="shame-app">
 				<audio id="audio" src="http://ankaikuba.nazwa.pl/sounds/sound1.mp3" ></audio>
-				<ShameLevel shameLevel={this.state.shameLevel} />
-				<img ref={this.imgFace} src={require('./facepalm.gif')} className="facepalm" />
-				<ShameButton isShaking={this.state.isShaking} raiseShame={() => this.raiseShame()} buttonTop={this.state.buttonTop} isReset={this.state.isReset}/>
+				<ShameButton isShaking={this.state.isShaking} raiseShame={() => this.raiseShame()} buttonTop={this.state.buttonTop} 
+					isReset={this.state.isReset} shameLevel={this.state.shameLevel}/>
+					<img ref={this.imgFace} src={require('../facepalm.gif')} className="facepalm" />
 			</div>
 		);
 	}
